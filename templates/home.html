@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title> Breed Finder </title>
+        <style>
+            *{
+                margin:0; padding:0;
+                box-sizing:border-box;
+                font-family:Arial, Helvetica, sans-serif;
+                transition: all .2s linear;
+            }
+
+            .form-container{
+                min-height: 100vh;
+                width: 100vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: url(../static/4709918.jpg) no-repeat;
+                background-size: cover;
+                background-position: center;
+                perspective: 1000px;
+            }
+
+            .form-container form{
+                height:450px;
+                width:350px;
+                background: rgba(255,255,255,.1);
+                text-align: center;
+                border-radius: 5px;
+                box-shadow: 0 5px 15px rgba(0,0,0,.3);
+                border-top: 1px solid rgba(255,255,255,.3);
+                border-left: 1px solid rgba(255,255,255,.3);
+                backdrop-filter: blur(10px);
+                transform-style: preserve-3d;
+            }
+
+            .form-container form h3{
+                font-size: 20px;
+                padding:2px 0;
+                color: #ccc;
+                letter-spacing: 3px;
+            }
+
+            .form-container form input{
+                outline:none;
+                border:none;
+                width:82%;
+                height:40px;
+                background: rgba(0,0,0,.1);
+                color: rgba(255,255,255,.7);
+                box-shadow: 0 0 5px rgba(0,0,0,.5) inset;
+                font-size: 17px;
+                padding: 0 10px;
+                margin:15px 0;
+                letter-spacing: 1px ;
+            }
+
+            .form-container form input[type="submit"]{
+                width:50%;
+                cursor:pointer;
+                background: linear-gradient(90deg, deeppink, blueviolet);
+                margin-top: 30px;
+                border-radius: 50px;
+            }
+            .form-container form input[type="submit"]:hover{
+                letter-spacing: 4px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div class = "form-container">
+            <!-- <h1> IRIS FLOWER DETECTION </h1><br> -->
+
+            <form method="POST" id="form" action="{{url_for('home')}}">
+                <h3> First value :  </h3>
+                    <input type="text", name='a', placeholder="enter 1"> 
+                <h3> Second value :  </h3>
+                    <input type="text", name='b', placeholder="enter 2"> 
+                <h3> Third value :  </h3>
+                    <input type="text", name='c', placeholder="enter 3"> 
+                <h3> Fourth value : </h3>
+                    <input type="text", name='d', placeholder="enter 4"> <br>
+                <input type="submit" , value='Predict!' >
+            </form>
+
+            <!-- <img src='..\static\flower1.jpg' alt="flower"> -->
+
+        </div>
+
+        <script>
+            var form = document.getElementById('form');
+
+            form.addEventListener('mousemove', (e)=>{
+                var x = (window.innerWidth/2-e.pageX)/12;
+                var y = (window.innerHeight/2-e.pageY)/12;
+                form.style.transform = 'rotateX('+x+'deg) rotateY('+y+'deg)';
+
+            });
+
+            form.addEventListener('mouseleave', function(){
+                form.style.transform = 'rotateX(0deg) rotateY(0deg)'
+
+            })
+        </script>
+
+    </body>
+</html>
