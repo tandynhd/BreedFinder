@@ -26,7 +26,7 @@ def man():
 @app.route('/', methods=['POST'])
 def home():
     image = request.files['imagefile']
-    image_path = "./static/images/"+image.filename
+    image_path = "./static/images/dog.jpg"
     image.save(image_path)
     return render_template('after.html')
 
