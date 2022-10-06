@@ -9,17 +9,6 @@
                 transition: all .2s linear;
             }
 
-            main{
-                display: grid;
-                place-items: center;
-                min-height: 100vh;
-                position: relative;
-            }
-
-            #eyes, #eyes img{
-                position: absolute;
-            }
-
             .form-container{
                 min-height: 100vh;
                 width: 100vw;
@@ -61,7 +50,7 @@
                 color: rgba(255,255,255,.7);
                 box-shadow: 0 0 5px rgba(0,0,0,.5) inset;
                 font-size: 17px;
-                padding: 10px 10px;
+                padding: 0 10px;
                 margin:15px 0;
                 letter-spacing: 1px ;
             }
@@ -83,29 +72,29 @@
     <body>
 
         <div class = "form-container">
-            <form method="POST" id="form" enctype="multipart/form-data" action="/">
-                <h3> Insert Dog Image :  </h3>
-                    <input class="form-control" type="file" name='imagefile' placeholder="enter image"> 
-                <input type="submit" value='Predict Breed!' >
+            <!-- <h1> IRIS FLOWER DETECTION </h1><br> -->
+
+            <form method="POST" id="form" action="{{url_for('home')}}">
+                <h3> First value :  </h3>
+                    <input type="text", name='a', placeholder="enter 1"> 
+                <h3> Second value :  </h3>
+                    <input type="text", name='b', placeholder="enter 2"> 
+                <h3> Third value :  </h3>
+                    <input type="text", name='c', placeholder="enter 3"> 
+                <h3> Fourth value : </h3>
+                    <input type="text", name='d', placeholder="enter 4"> <br>
+                <input type="submit" , value='Predict!' >
             </form>
 
-            <div>
-                <img id="anchor" src="../static/jake.png">
-                <div id="eyes">
-                    <img class="eye" src="../static/eye.png" width="20" height="20" style="top: -220px;
-                    left: 270px">
-                    <img class="eye" src="../static/eye.png" width="20" height="20" style="top: -199px;
-                    left: 390px">
-                </div>
-            </div>
+            <!-- <img src='..\static\flower1.jpg' alt="flower"> -->
+
         </div>
-        
 
         <script>
             var form = document.getElementById('form');
 
             form.addEventListener('mousemove', (e)=>{
-                var x = (window.innerWidth/4-e.pageX)/12;
+                var x = (window.innerWidth/2-e.pageX)/12;
                 var y = (window.innerHeight/2-e.pageY)/12;
                 form.style.transform = 'rotateX('+x+'deg) rotateY('+y+'deg)';
 
@@ -114,32 +103,7 @@
             form.addEventListener('mouseleave', function(){
                 form.style.transform = 'rotateX(0deg) rotateY(0deg)'
 
-            });
-
-            const anchor = document.getElementById('anchor')
-                const rekt = anchor.getBoundingClientRect();
-                const anchorX = rekt.left + rekt.width/2;
-                const anchorY = rekt.top + rekt.height/2;
-                const eyes = document.querySelectorAll('.eye')
-
-                document.addEventListener('mousemove', (e)=>{
-                const mouseX = e.clientX;
-                const mouseY = e.clientY;
-                angleDeg = angle(mouseX, mouseY, anchorX, anchorY);
-                console.log(angleDeg);
-                eyes.forEach(eye => {
-                    eye.style.transform = `rotate(${90 + angleDeg}deg)`;
-                    anchor.style.filter = `hue-rotate(${angleDeg}deg)`;
-                })
-            });
-
-            function angle(cx, cy, ex, ey){
-                const dy = ey - cy;
-                const dx = ex - cx;
-                const rad = Math.atan2(dy,dx);
-                const deg = rad*180/Math.PI;
-                return deg;
-            };
+            })
         </script>
 
     </body>
