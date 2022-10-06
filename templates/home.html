@@ -1,6 +1,7 @@
 <html>
     <head>
         <title> Breed Finder </title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <style>
             *{
                 margin:0; padding:0;
@@ -74,7 +75,14 @@
                 border-radius: 50px;
             }
             .form-container form input[type="submit"]:hover{
-                letter-spacing: 4px;
+                letter-spacing: 2px;
+            }
+
+            .form-control{
+                opacity: 50%;
+                box-shadow: 10;
+                border-radius: 50px;
+                margin-bottom: 50px;
             }
 
         </style>
@@ -84,7 +92,7 @@
 
         <div class = "form-container">
             <form method="POST" id="form" enctype="multipart/form-data" action="/">
-                <h3> Insert Dog Image :  </h3>
+                <h3 style="margin-top: 150px;"> Insert Dog Image :  </h3>
                     <input class="form-control" type="file" name='imagefile' placeholder="enter image"> 
                 <input type="submit" value='Predict Breed!' >
             </form>

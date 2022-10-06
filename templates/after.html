@@ -1,6 +1,7 @@
 <html>
     <head>
         <title> Breed Finder </title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <style>
             *{
                 margin:0; padding:0;
@@ -9,6 +10,11 @@
                 transition: all .2s linear;
             }
 
+            a {
+                text-decoration: none;
+                color: hotpink;
+                text-emphasis: filled-red;
+            }
             .form-container{
                 min-height: 100vh;
                 width: 100vw;
@@ -59,14 +65,14 @@
 
         <div class = "form-container">
             <div id="text">
-                <h1>  PREDICTION :  </h1>
+                <h3 style="margin-top: 50px;" >  Prediction :  </h1>
             
                 {%if data == 0%}
-                <h1>Iris-setosa</h1>  
+                <h3>Iris-setosa</h1>  
                 <img src='static\images\dog.jpg'>  
             
                 {%else%}
-                <h1>Iris-versicolor</h1>
+                <h3>Iris-versicolor</h1>
                 <img src='static\images\dog.jpg'>
                 
                 {%endif%}
