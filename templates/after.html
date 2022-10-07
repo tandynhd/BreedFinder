@@ -13,7 +13,6 @@
             a {
                 text-decoration: none;
                 color: hotpink;
-                text-emphasis: filled-red;
             }
             .form-container{
                 min-height: 100vh;
@@ -67,15 +66,8 @@
             <div id="text">
                 <h3 style="margin-top: 50px;" >  Prediction :  </h1>
             
-                {%if data == 0%}
-                <h3>Iris-setosa</h1>  
+                <h3>{{data}}</h1>  
                 <img src='static\images\dog.jpg'>  
-            
-                {%else%}
-                <h3>Iris-versicolor</h1>
-                <img src='static\images\dog.jpg'>
-                
-                {%endif%}
             
                     <br><br>
                 <a href='/'> Back to home page</a>
